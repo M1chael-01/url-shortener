@@ -1,6 +1,8 @@
+import "dotenv/config"; 
 import Fastify from "fastify";
 import fastifyRateLimit from "@fastify/rate-limit";
-import { shortenRoutes } from "./routes/shorten.js";
+import { shortenRoutes } from "./routes/shorten.ts";
+import { redirectRoutes } from "./routes/redirect.ts";
 
 const fastify = Fastify({ logger: true });
 
@@ -29,6 +31,7 @@ await fastify.register(fastifyRateLimit, {
 });
 
 await fastify.register(shortenRoutes);
+await fastify.register(redirectRoutes);
 
 const start = async () => {
   try {

@@ -1,6 +1,7 @@
 import type { RouteHandlerMethod } from "fastify";
 import { Type } from "@sinclair/typebox";
-import { isValidWebUrl } from "../lib/validate.js";
+import { isValidWebUrl } from "../lib/validate.ts";
+import { urlService } from "../services/url.ts";
 
 export const ShortenBodySchema = Type.Object({
   url: Type.String({ format: "uri" }),
@@ -16,12 +17,14 @@ export const handleShorten: RouteHandlerMethod = async (request, reply) => {
         "Zadaný text není platná URL adresa. Musí začínat http:// nebo https://",
     });
   }
-
-  const shortCode = Math.random().toString(36).substring(2, 8);
-
-  return reply.status(201).send({
-    shortCode,
-    shortUrl: `http://localhost:3000/${shortCode}`,
-    originalUrl: url,
-  });
+  try {
+    const { shortCode, originalUrl } = await urlService.createShortUrl(url);
+    return reply.status(201).send({
+      shortCode,
+      shortUrl: `http://localhost:3000/${shortCode}`,
+      originalUrl,
+    });
+  } catch (err) {
+    request.log.error(err);
+  }
 };
