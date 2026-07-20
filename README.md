@@ -1,4 +1,4 @@
-﻿# URL Shortener API (in progress) 
+﻿# URL Shortener API 
 
 A lightweight, highly performant URL shortener microservice built with **Fastify**, **TypeScript**, and **Neon (PostgreSQL)**.
 
