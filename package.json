@@ -2,10 +2,10 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "Fastify URL shortener written in TypeScript",
-  "main": "server.ts",
+  "main": "src/server.ts",
   "type": "module",
   "scripts": {
-    "start": "node --experimental-strip-types server.ts",
+    "start": "tsx watch src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@types/node": "^26.1.1",
+    "tsx": "^4.23.1",
     "typescript": "^5.4.5"
   }
 }
