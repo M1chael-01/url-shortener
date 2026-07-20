@@ -1,7 +1,6 @@
-import type { FastifyInstance } from 'fastify';
+import type { FastifyInstance } from "fastify";
+import { handleShorten } from "../controllers/shorten.js";
 
 export async function shortenRoutes(fastify: FastifyInstance) {
-  fastify.get('/shorten', async (request, reply) => {
-    return reply.send('This is the route for shortening URLs.');
-  });
+  fastify.get("/shorten", handleShorten);
 }
