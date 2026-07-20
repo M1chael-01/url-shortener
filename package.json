@@ -1,0 +1,29 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "Fastify URL shortener written in TypeScript",
+  "main": "server.ts",
+  "type": "module",
+  "scripts": {
+    "start": "node --experimental-strip-types server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M1chael-01/url-shortener.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/M1chael-01/url-shortener/issues"
+  },
+  "homepage": "https://github.com/M1chael-01/url-shortener#readme",
+  "dependencies": {
+    "fastify": "^5.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "typescript": "^5.4.5"
+  }
+}
